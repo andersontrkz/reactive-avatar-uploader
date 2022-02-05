@@ -1,7 +1,10 @@
+import { DropContainer } from '../../AvatarUpload/DropContainer';
+
 export const Home = () => {
   return (
     <div>
-      <h1>Olá mundo, minha home!</h1>
+      <br />
+      <DropContainer />
     </div>
   );
 };
