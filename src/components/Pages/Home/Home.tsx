@@ -1,10 +1,10 @@
-import { DropContainer } from '../../AvatarUpload/DropContainer';
+import { Dropzone } from '../../AvatarUpload/Dropzone';
 
 export const Home = () => {
   return (
     <div>
       <br />
-      <DropContainer />
+      <Dropzone />
     </div>
   );
 };
