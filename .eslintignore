@@ -13,3 +13,5 @@ README.md
 
 package.json
 yarn.lock
+
+tsconfig.json
