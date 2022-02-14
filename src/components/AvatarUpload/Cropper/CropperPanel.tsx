@@ -41,9 +41,16 @@ function CropperPanel({ croppedAreaPixels, zoom, setZoom }: any) {
   }, []);
 
   return (
-    <Flex w="70%" flexDir="column" alignItems="flex-end" justify="space-between">
-      <DeleteAvatar />
-      <Flex pl="6" w="100%" flexDir="column" alignItems="flex-start">
+    <Flex
+      w="70%"
+      flexDir="column"
+      alignItems={{ base: 'center', sm: 'flex-end' }}
+      justify="space-between"
+    >
+      <Flex w="100%" justify="flex-end">
+        <DeleteAvatar />
+      </Flex>
+      <Flex pl={{ base: '0', sm: '2', md: '8' }} w="100%" flexDir="column" alignItems="flex-start">
         <Text fontSize={{ base: '12', md: '16', xl: '20' }} color="var(--text-color)">
           Crop
         </Text>
@@ -73,6 +80,7 @@ function CropperPanel({ croppedAreaPixels, zoom, setZoom }: any) {
         _hover={{
           bg: 'var(--action-color)',
         }}
+        mt={{ base: '2', sm: '0' }}
       >
         Save
       </Button>

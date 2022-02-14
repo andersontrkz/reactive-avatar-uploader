@@ -7,7 +7,11 @@ const ImageBox = () => {
   const { avatar } = useAvatarUpload();
 
   return (
-    <Flex justify="space-between" alignItems="center" color="rgb(60, 70, 100)">
+    <Flex
+      flexDir={{ base: 'column', sm: 'row' }}
+      justify={{ base: 'center', sm: 'space-between' }}
+      alignItems="center"
+    >
       <Box
         borderRadius="50%"
         minW={{ base: '24', md: '32' }}
@@ -18,7 +22,10 @@ const ImageBox = () => {
       >
         <Image borderRadius="50%" src={avatar.preview} fit="cover" id="ReactCrop__image" />
       </Box>
-      <DropMessage />
+
+      <Flex w="100%" justify="center">
+        <DropMessage />
+      </Flex>
     </Flex>
   );
 };

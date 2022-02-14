@@ -52,7 +52,7 @@ export const Dropzone = () => {
         border={`1.82px dashed ${setBorderColor()}`}
         borderRadius="12px"
         bg={setBackgroundColor()}
-        p={{ base: '4', md: '8' }}
+        p={{ base: '6', md: '8' }}
       >
         {avatar.preview === 'isError' ? <ErrorContainer root={getRootProps} /> : <DropContainer />}
       </Flex>

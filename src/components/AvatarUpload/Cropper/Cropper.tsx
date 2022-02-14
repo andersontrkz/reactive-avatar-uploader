@@ -20,7 +20,12 @@ function Cropper() {
   }, []);
 
   return (
-    <Flex width="100%" justify="space-between">
+    <Flex
+      width="100%"
+      flexDir={{ base: 'column', sm: 'row' }}
+      justify={{ base: 'center', sm: 'space-between' }}
+      alignItems={{ base: 'center', sm: 'initial' }}
+    >
       <Box
         borderRadius="50%"
         minW={{ base: '24', md: '32' }}
