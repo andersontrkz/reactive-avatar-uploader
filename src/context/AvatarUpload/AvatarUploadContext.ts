@@ -15,6 +15,8 @@ interface IAvatarUploadContext {
   setAvatar: Dispatch<SetStateAction<IImage>>;
   controllerCropped: boolean;
   setControllerCropped: Dispatch<SetStateAction<boolean>>;
+  controllerEditing: boolean;
+  setControllerEditing: Dispatch<SetStateAction<boolean>>;
 }
 
 const AvatarUploadContext = createContext<IAvatarUploadContext>({} as IAvatarUploadContext);

@@ -15,6 +15,7 @@ interface IImage {
 const AvatarUploadProvider: React.FC = ({ children }) => {
   const [avatar, setAvatar] = useState<IImage>({} as IImage);
   const [controllerCropped, setControllerCropped] = useState(false);
+  const [controllerEditing, setControllerEditing] = useState(false);
 
   const handleUpload = (file: File[]) => {
     const [image] = file;
@@ -52,6 +53,8 @@ const AvatarUploadProvider: React.FC = ({ children }) => {
         handleUpload,
         controllerCropped,
         setControllerCropped,
+        controllerEditing,
+        setControllerEditing,
       }}
     >
       {children}
