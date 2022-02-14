@@ -43,8 +43,10 @@ function CropperPanel({ croppedAreaPixels, zoom, setZoom }: any) {
   return (
     <Flex w="70%" flexDir="column" alignItems="flex-end" justify="space-between">
       <DeleteAvatar />
-      <Flex pl="2" w="100%" flexDir="column" alignItems="flex-start">
-        <Text color="rgb(60, 70, 100)">Crop</Text>
+      <Flex pl="6" w="100%" flexDir="column" alignItems="flex-start">
+        <Text fontSize={{ base: '12', md: '16', xl: '20' }} color="var(--text-color)">
+          Crop
+        </Text>
         <Slider
           value={zoom}
           defaultValue={zoom}
@@ -60,15 +62,16 @@ function CropperPanel({ croppedAreaPixels, zoom, setZoom }: any) {
         </Slider>
       </Flex>
       <Button
+        fontSize={{ base: '12', md: '16' }}
         borderRadius="24px"
-        px="12"
-        py="4"
+        px={{ base: '4', md: '12', xl: '12' }}
+        py={{ base: '2', md: '4', xl: '6' }}
         bg="rgb(60, 70, 100)"
         color="white"
         onClick={altercontrollerCropped}
         transition=".9s"
         _hover={{
-          bg: 'rgba(60, 70, 100, 0.7)',
+          bg: 'var(--action-color)',
         }}
       >
         Save

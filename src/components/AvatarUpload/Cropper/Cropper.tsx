@@ -21,7 +21,12 @@ function Cropper() {
 
   return (
     <Flex width="100%" justify="space-between">
-      <Box borderRadius="50%" boxSize="32" pos="relative">
+      <Box
+        borderRadius="50%"
+        minW={{ base: '24', md: '32' }}
+        minH={{ base: '24', md: '32' }}
+        pos="relative"
+      >
         <CropperImageBox
           zoom={zoom}
           setZoom={setZoom}

@@ -31,7 +31,6 @@ function CropperBox({ setCroppedAreaPixels, zoom, setZoom }: any) {
       style={{
         containerStyle: {
           borderRadius: '50%',
-          backgroundColor: 'red',
         },
         mediaStyle: { maxWidth: 'initial' },
         cropAreaStyle: {

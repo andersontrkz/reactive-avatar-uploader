@@ -29,7 +29,7 @@ export const Dropzone = () => {
     if (isDragActive) {
       return '#82b74b';
     }
-    return 'black';
+    return 'var(--secondary-color)';
   };
 
   const setBackgroundColor = () => {
@@ -39,20 +39,20 @@ export const Dropzone = () => {
     if (isDragActive) {
       return '#ddeedd';
     }
-    return '#cfe0e8';
+    return 'var(--primary-color)';
   };
 
   return (
-    <Container textAlign="center" px="0">
+    <Container textAlign="center">
       <Flex
         transition=".9s"
         {...(controllerEditing ? {} : { ...getRootProps() })}
         flexDir="column"
         justify="center"
-        border={`2px dashed ${setBorderColor()}`}
+        border={`1.82px dashed ${setBorderColor()}`}
         borderRadius="12px"
         bg={setBackgroundColor()}
-        p="8"
+        p={{ base: '4', md: '8' }}
       >
         {avatar.preview === 'isError' ? <ErrorContainer root={getRootProps} /> : <DropContainer />}
       </Flex>

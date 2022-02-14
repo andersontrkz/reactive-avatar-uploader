@@ -18,13 +18,14 @@ function DeleteButton() {
 
   return (
     <Box
-      color="rgb(60, 70, 100)"
+      color="var(--text-color)"
       transition=".9s"
       _hover={{
         color: 'rgba(60, 70, 100, 0.7)',
       }}
       cursor="pointer"
       onClick={() => deleteAvatar(avatar.id)}
+      fontSize={{ base: '12', md: '16', xl: '20' }}
     >
       <FontAwesomeIcon icon={faTimes} />
     </Box>

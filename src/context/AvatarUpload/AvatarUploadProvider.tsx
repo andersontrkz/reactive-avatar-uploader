@@ -33,6 +33,7 @@ const AvatarUploadProvider: React.FC = ({ children }) => {
         setControllerCropped(false);
 
         setAvatar(newAvatar);
+        setAvatar({ preview: 'isError' } as IImage);
       } catch (e) {
         console.log(e);
         setAvatar({ preview: 'isError' } as IImage);

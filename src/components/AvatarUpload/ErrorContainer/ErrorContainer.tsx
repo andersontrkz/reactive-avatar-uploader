@@ -19,7 +19,12 @@ function ErrorContainer({ root }: any) {
 
   return (
     <Flex width="100%" justify="space-between">
-      <Box borderRadius="50%" boxSize="32" pos="relative">
+      <Box
+        borderRadius="50%"
+        minW={{ base: '24', md: '32' }}
+        minH={{ base: '24', md: '32' }}
+        pos="relative"
+      >
         <Flex
           bg="rgb(200, 200, 215)"
           borderRadius="50%"
@@ -33,9 +38,14 @@ function ErrorContainer({ root }: any) {
 
       <Flex w="70%" flexDir="column" alignItems="flex-end" justify="space-between">
         <DeleteAvatar />
-        <Flex h="100%" w="100%" flexDir="column" alignItems="flex-start">
-          <Text color="red">Sorry, the upload failed.</Text>
-          <Text {...root()} decoration="underline" textUnderlineOffset="3px">
+        <Flex pl="6" h="100%" w="100%" flexDir="column" alignItems="flex-start">
+          <Text color="var(--alert-color)">Sorry, the upload failed.</Text>
+          <Text
+            {...root()}
+            decoration="underline"
+            textUnderlineOffset="3px"
+            color="var(--action-color)"
+          >
             Try again
           </Text>
         </Flex>

@@ -1,22 +1,24 @@
-import { Flex, Image } from '@chakra-ui/react';
+import { Flex, Image, Box } from '@chakra-ui/react';
 
 import useAvatarUpload from '../../../hooks/useAvatarUpload';
-import DropContent from '../Dropzone/DropContent';
+import DropMessage from '../Dropzone/DropMessage';
 
 const ImageBox = () => {
   const { avatar } = useAvatarUpload();
 
   return (
     <Flex justify="space-between" alignItems="center" color="rgb(60, 70, 100)">
-      <Image
+      <Box
         borderRadius="50%"
-        boxSize="32"
-        border="1px solid #000000AA"
-        src={avatar.preview}
-        fit="cover"
-        id="ReactCrop__image"
-      />
-      <DropContent />
+        minW={{ base: '24', md: '32' }}
+        maxW={{ base: '24', md: '32' }}
+        minH={{ base: '24', md: '32' }}
+        maxH={{ base: '24', md: '32' }}
+        pos="relative"
+      >
+        <Image borderRadius="50%" src={avatar.preview} fit="cover" id="ReactCrop__image" />
+      </Box>
+      <DropMessage />
     </Flex>
   );
 };
