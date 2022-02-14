@@ -20,17 +20,22 @@ const AvatarUploadProvider: React.FC = ({ children }) => {
     const [image] = file;
 
     if (image) {
-      const newAvatar: IImage = {
-        file: image,
-        id: uuidv4(),
-        name: image.name,
-        readableSize: filesize(image.size),
-        preview: URL.createObjectURL(image),
-      };
+      try {
+        const newAvatar: IImage = {
+          file: image,
+          id: uuidv4(),
+          name: image.name,
+          readableSize: filesize(image.size),
+          preview: URL.createObjectURL(image),
+        };
 
-      setControllerCropped(false);
+        setControllerCropped(false);
 
-      setAvatar(newAvatar);
+        setAvatar(newAvatar);
+      } catch (e) {
+        console.log(e);
+        setAvatar({ preview: 'isError' } as IImage);
+      }
     }
   };
 

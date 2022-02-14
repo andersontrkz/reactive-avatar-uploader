@@ -1,4 +1,4 @@
-import { Flex, Image, Link, Box, Button, Text } from '@chakra-ui/react';
+import { Flex, Image, Box, Button, Text } from '@chakra-ui/react';
 import { faTimes, faImage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -20,16 +20,14 @@ const PreviewCard = ({ root }: any) => {
       <Box>
         {controllerCropped ? (
           <Flex {...root()} justify="space-between" alignItems="center" color="rgb(60, 70, 100)">
-            <Link mx="2" href={avatar.preview} target="_blank">
-              <Image
-                borderRadius="50%"
-                boxSize="32"
-                border="1px solid #000000AA"
-                src={avatar.preview}
-                fit="cover"
-                id="ReactCrop__image"
-              />
-            </Link>
+            <Image
+              borderRadius="50%"
+              boxSize="32"
+              border="1px solid #000000AA"
+              src={avatar.preview}
+              fit="cover"
+              id="ReactCrop__image"
+            />
             <Flex flexDir="column" width="70%">
               <Button
                 as={Text}
