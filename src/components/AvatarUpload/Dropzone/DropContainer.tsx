@@ -52,9 +52,13 @@ export const DropContainer = ({ active, reject, children, root }: DropContainerP
           <>
             {children}
             <Button
+              as={Text}
               leftIcon={<FontAwesomeIcon icon={faImage} />}
               bg="none"
               _hover={{
+                bg: 'none',
+              }}
+              _active={{
                 bg: 'none',
               }}
             >
@@ -64,7 +68,7 @@ export const DropContainer = ({ active, reject, children, root }: DropContainerP
           </>
         </Flex>
       ) : (
-        <PreviewCard />
+        <PreviewCard root={root} />
       )}
     </Container>
   );

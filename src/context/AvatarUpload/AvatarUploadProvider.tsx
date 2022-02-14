@@ -1,5 +1,5 @@
 import filesize from 'filesize';
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import AvatarUploadContext from './AvatarUploadContext';
@@ -14,12 +14,13 @@ interface IImage {
 
 const AvatarUploadProvider: React.FC = ({ children }) => {
   const [avatar, setAvatar] = useState<IImage>();
+  const [controller, setController] = useState(false);
 
   const handleUpload = (file: File[]) => {
     const [image] = file;
 
     if (image) {
-      const newavatar: IImage = {
+      const newAvatar: IImage = {
         file: image,
         id: uuidv4(),
         name: image.name,
@@ -27,16 +28,21 @@ const AvatarUploadProvider: React.FC = ({ children }) => {
         preview: URL.createObjectURL(image),
       };
 
-      setAvatar(newavatar);
+      setController(false);
+
+      setAvatar(newAvatar);
     }
   };
 
-  const deleteAvatar = useCallback(() => {
+  const deleteAvatar = () => {
+    console.log(avatar);
     setAvatar(undefined);
-  }, []);
+  };
 
   return (
-    <AvatarUploadContext.Provider value={{ avatar, deleteAvatar, handleUpload }}>
+    <AvatarUploadContext.Provider
+      value={{ avatar, setAvatar, deleteAvatar, handleUpload, controller, setController }}
+    >
       {children}
     </AvatarUploadContext.Provider>
   );

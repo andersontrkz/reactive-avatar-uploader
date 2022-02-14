@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, Dispatch, SetStateAction } from 'react';
 
 interface IImage {
   id: string;
@@ -12,6 +12,9 @@ interface IAvatarUploadContext {
   avatar: IImage | undefined;
   deleteAvatar(id: string): void;
   handleUpload(file: File[]): void;
+  setAvatar: Dispatch<SetStateAction<IImage | undefined>>;
+  controller: boolean;
+  setController: Dispatch<SetStateAction<boolean>>;
 }
 
 const AvatarUploadContext = createContext<IAvatarUploadContext>({} as IAvatarUploadContext);

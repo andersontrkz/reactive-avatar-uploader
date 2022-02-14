@@ -1,45 +1,68 @@
-import { Flex, Image, Text, Link, Box } from '@chakra-ui/react';
-import { faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Flex, Image, Link, Box, Button, Text } from '@chakra-ui/react';
+import { faTimes, faImage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useAvatarUpload from '../../../hooks/useAvatarUpload';
+import CropArea from '../CropArea/CropArea';
 
-const PreviewCard = () => {
-  const { avatar, deleteAvatar } = useAvatarUpload();
+const PreviewCard = ({ root }: any) => {
+  const { avatar, deleteAvatar, controller } = useAvatarUpload();
 
   return (
     <Flex
       flexDir="column"
-      justify="center"
+      justify="normal"
       border={`1px dashed black`}
       borderRadius="12px"
       bg="#cfe0e8"
-      py="16"
+      p="6"
     >
-      <Flex h="100%" justify="space-around" alignItems="center">
-        <Flex justify="space-between" alignItems="center">
-          <Link mx="2" href={avatar?.preview} target="_blank">
-            <Image
-              border="1px solid #000000AA"
-              src={avatar?.preview}
-              borderRadius="8px"
-              boxSize="12"
-              fit="cover"
-            />
-          </Link>
-          <Box>
-            <Text mx="2">{avatar?.name}</Text>
-            <Flex justify="flex-start" alignItems="center">
-              <Text mx="2">{avatar?.readableSize}</Text>
-              <FontAwesomeIcon icon={faCheckCircle} color="green" />
+      <Box>
+        {controller ? (
+          <Flex {...root()} justify="space-between" alignItems="center" color="rgb(60, 70, 100)">
+            <Link mx="2" href={avatar?.preview} target="_blank">
+              <Image
+                borderRadius="50%"
+                boxSize="32"
+                border="1px solid #000000AA"
+                src={avatar?.preview}
+                fit="cover"
+                id="ReactCrop__image"
+              />
+            </Link>
+            <Flex flexDir="column" width="70%">
+              <Button
+                as={Text}
+                leftIcon={<FontAwesomeIcon icon={faImage} />}
+                bg="none"
+                _hover={{
+                  bg: 'none',
+                }}
+                _active={{
+                  bg: 'none',
+                }}
+              >
+                Organization Logo
+              </Button>
+              <Text>Drop the image here or click to browse</Text>
             </Flex>
-          </Box>
-        </Flex>
-
-        <Box mx="2" p="2" cursor="pointer" onClick={() => deleteAvatar(avatar?.id || '')}>
-          <FontAwesomeIcon icon={faTimes} color="#d96459" />
-        </Box>
-      </Flex>
+          </Flex>
+        ) : (
+          <CropArea>
+            <Box
+              color="rgb(60, 70, 100)"
+              transition=".9s"
+              _hover={{
+                color: 'rgba(60, 70, 100, 0.7)',
+              }}
+              cursor="pointer"
+              onClick={() => deleteAvatar(avatar?.id || '')}
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </Box>
+          </CropArea>
+        )}
+      </Box>
     </Flex>
   );
 };

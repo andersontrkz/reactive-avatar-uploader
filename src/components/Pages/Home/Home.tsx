@@ -1,4 +1,5 @@
 import { Flex } from '@chakra-ui/react';
+import 'react-image-crop/dist/ReactCrop.css';
 
 import { AvatarUpload } from '../../AvatarUpload';
 
