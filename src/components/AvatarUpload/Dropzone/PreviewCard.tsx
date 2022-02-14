@@ -6,7 +6,7 @@ import useAvatarUpload from '../../../hooks/useAvatarUpload';
 import CropArea from '../CropArea/CropArea';
 
 const PreviewCard = ({ root }: any) => {
-  const { avatar, deleteAvatar, controller } = useAvatarUpload();
+  const { avatar, deleteAvatar, controllerCropped } = useAvatarUpload();
 
   return (
     <Flex
@@ -18,14 +18,14 @@ const PreviewCard = ({ root }: any) => {
       p="6"
     >
       <Box>
-        {controller ? (
+        {controllerCropped ? (
           <Flex {...root()} justify="space-between" alignItems="center" color="rgb(60, 70, 100)">
-            <Link mx="2" href={avatar?.preview} target="_blank">
+            <Link mx="2" href={avatar.preview} target="_blank">
               <Image
                 borderRadius="50%"
                 boxSize="32"
                 border="1px solid #000000AA"
-                src={avatar?.preview}
+                src={avatar.preview}
                 fit="cover"
                 id="ReactCrop__image"
               />
@@ -56,7 +56,7 @@ const PreviewCard = ({ root }: any) => {
                 color: 'rgba(60, 70, 100, 0.7)',
               }}
               cursor="pointer"
-              onClick={() => deleteAvatar(avatar?.id || '')}
+              onClick={() => deleteAvatar(avatar.id)}
             >
               <FontAwesomeIcon icon={faTimes} />
             </Box>

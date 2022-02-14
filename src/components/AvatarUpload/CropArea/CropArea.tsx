@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
   Button,
   Box,
@@ -21,7 +20,7 @@ type CropAreaProps = {
 };
 
 function CropArea({ children }: CropAreaProps) {
-  const { avatar, setAvatar, setController } = useAvatarUpload();
+  const { avatar, setAvatar, setControllerCropped } = useAvatarUpload();
 
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -34,24 +33,23 @@ function CropArea({ children }: CropAreaProps) {
   const showCroppedImage = useCallback(async () => {
     try {
       const croppedImage = await getCroppedImg(avatar?.preview, croppedAreaPixels);
-      console.log('donee', { croppedImage });
-      // @ts-ignore
+
       setAvatar({ ...avatar, preview: croppedImage });
     } catch (e) {
       console.error(e);
     }
   }, [croppedAreaPixels]);
 
-  const alterController = () => {
+  const altercontrollerCropped = () => {
     showCroppedImage();
-    setController(true);
+    setControllerCropped(true);
   };
 
   return (
     <Flex width="100%" justify="space-between">
       <Box borderRadius="50%" boxSize="32" pos="relative">
         <Cropper
-          image={avatar?.preview}
+          image={avatar.preview}
           crop={crop}
           zoom={zoom}
           aspect={1}
@@ -94,7 +92,7 @@ function CropArea({ children }: CropAreaProps) {
           py="4"
           bg="rgb(60, 70, 100)"
           color="white"
-          onClick={alterController}
+          onClick={altercontrollerCropped}
           transition=".9s"
           _hover={{
             bg: 'rgba(60, 70, 100, 0.7)',

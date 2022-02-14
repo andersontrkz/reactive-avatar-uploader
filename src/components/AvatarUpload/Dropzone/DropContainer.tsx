@@ -38,7 +38,7 @@ export const DropContainer = ({ active, reject, children, root }: DropContainerP
 
   return (
     <Container textAlign="center" px="0">
-      {!avatar ? (
+      {!avatar.preview ? (
         <Flex
           transition=".9s"
           {...root()}

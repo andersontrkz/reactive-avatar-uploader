@@ -9,12 +9,12 @@ interface IImage {
 }
 
 interface IAvatarUploadContext {
-  avatar: IImage | undefined;
+  avatar: IImage;
   deleteAvatar(id: string): void;
   handleUpload(file: File[]): void;
-  setAvatar: Dispatch<SetStateAction<IImage | undefined>>;
-  controller: boolean;
-  setController: Dispatch<SetStateAction<boolean>>;
+  setAvatar: Dispatch<SetStateAction<IImage>>;
+  controllerCropped: boolean;
+  setControllerCropped: Dispatch<SetStateAction<boolean>>;
 }
 
 const AvatarUploadContext = createContext<IAvatarUploadContext>({} as IAvatarUploadContext);

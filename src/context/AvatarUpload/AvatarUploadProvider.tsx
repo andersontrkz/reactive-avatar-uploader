@@ -13,8 +13,8 @@ interface IImage {
 }
 
 const AvatarUploadProvider: React.FC = ({ children }) => {
-  const [avatar, setAvatar] = useState<IImage>();
-  const [controller, setController] = useState(false);
+  const [avatar, setAvatar] = useState<IImage>({} as IImage);
+  const [controllerCropped, setControllerCropped] = useState(false);
 
   const handleUpload = (file: File[]) => {
     const [image] = file;
@@ -28,20 +28,26 @@ const AvatarUploadProvider: React.FC = ({ children }) => {
         preview: URL.createObjectURL(image),
       };
 
-      setController(false);
+      setControllerCropped(false);
 
       setAvatar(newAvatar);
     }
   };
 
   const deleteAvatar = () => {
-    console.log(avatar);
-    setAvatar(undefined);
+    setAvatar({} as IImage);
   };
 
   return (
     <AvatarUploadContext.Provider
-      value={{ avatar, setAvatar, deleteAvatar, handleUpload, controller, setController }}
+      value={{
+        avatar,
+        setAvatar,
+        deleteAvatar,
+        handleUpload,
+        controllerCropped,
+        setControllerCropped,
+      }}
     >
       {children}
     </AvatarUploadContext.Provider>
