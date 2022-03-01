@@ -5,6 +5,8 @@ build
 /.vscode
 /public
 
+tests/
+
 .eslintrc.json
 .prettierrc.json
 jsconfig.json

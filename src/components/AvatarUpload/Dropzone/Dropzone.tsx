@@ -53,6 +53,7 @@ export const Dropzone = () => {
         borderRadius="12px"
         bg={setBackgroundColor()}
         p={{ base: '6', md: '8' }}
+        data-testid="dropzone"
       >
         {avatar.preview === 'isError' ? <ErrorContainer root={getRootProps} /> : <DropContainer />}
       </Flex>
