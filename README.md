@@ -38,7 +38,11 @@ Throughout the entire process, the user can click on the "X" icon to cancel and 
 - [x]  Accept Image Files;
 - [x]  Decline Other Files;
 - [x]  Feedback Actions to User;
-- [x]  Implement Tests;
+- [x]  Custom Hooks;
+- [x]  Avatar Upload Context;
+- [x]  Avatar Upload Provider;
+- [x]  Responsive Components;
+- [x]  Implement Tests.
 
 
 # Technologies
