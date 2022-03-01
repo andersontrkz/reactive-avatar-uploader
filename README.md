@@ -1,6 +1,6 @@
-### Welcome to the Avatar Upload project repository!
+### Welcome to the Reactive Avatar Uploader project repository!
 
-# Avatar Upload
+# Reactive Avatar Uploader
 
 
 ## About
